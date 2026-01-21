@@ -1,0 +1,81 @@
+/* --- Global Variables and Base Reset --- */
+:root {
+    --color-purple: #9b59b6;
+    --color-purple-light: #b07cd6;
+    --color-dark-bg: #0d0014;
+    --color-primary: #37a887; /* Green for Modal buttons */
+    --color-text-light: #ffffff;
+    --color-text-muted: #aaaaaa;
+    --color-card-bg: #1a1a2e;
+    --color-highlight-bg: #7f00ff33;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+    background-color: var(--color-dark-bg);
+    color: var(--color-text-light);
+}
+
+a {
+    color: var(--color-text-light);
+    text-decoration: none;
+}
+
+h1, h2, h3, h4 {
+    color: var(--color-text-light);
+}
+h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+h2 strong {
+    color: var(--color-purple-light);
+}
+p strong {
+    font-weight: bold;
+    color: var(--color-purple-light);
+}
+
+.btn-primary {
+    background-color: var(--color-purple);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.2s;
+}
+.btn-primary:hover {
+    background-color: #7f3c9e;
+}
+.btn-secondary {
+    background: transparent;
+    color: var(--color-text-light);
+    padding: 10px 20px;
+    border: 1px solid var(--color-text-muted);
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: border-color 0.2s, background-color 0.2s;
+}
+.btn-secondary:hover {
+    border-color: var(--color-purple);
+    background-color: rgba(155, 89, 182, 0.1);
+}
+
+/* --- App Layout --- */
+.App {
+    min-height: 100vh;
+}
+
+
+
+
+
