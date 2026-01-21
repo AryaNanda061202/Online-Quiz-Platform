@@ -1,0 +1,222 @@
+/* src/pages/landingPage/LandingPage.css */
+
+/* --- 1. Header Styles (Header Component CSS also uses these classes) --- */
+/* NOTE: The actual implementation of these styles for the header element is in Header.css */
+
+/* --- 2. Hero Section --- */
+.hero-section {
+    padding: 180px 80px 100px;
+    text-align: center;
+    background-color: var(--color-dark-bg);
+    background-image: linear-gradient(to right, #240a2c 1px, transparent 1px), linear-gradient(to bottom, #240a2c 1px, transparent 1px);
+    background-size: 50px 50px;
+    position: relative;
+    overflow: hidden;
+}
+.hero-section::before { 
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle, transparent 20%, #0d0014 90%);
+    z-index: 1;
+}
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    z-index: 2;
+    position: relative;
+}
+.hero-content .subtitle {
+    color: var(--color-purple-light);
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.hero-content h1 {
+    font-size: 56px;
+    margin-bottom: 20px;
+}
+.hero-content p {
+    color: var(--color-text-muted);
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+.hero-buttons button {
+    margin: 0 10px;
+}
+.join-info {
+    margin-top: 25px;
+    font-size: 14px;
+    color: var(--color-text-muted);
+}
+
+
+/* --- 3. Streaks Section --- */
+.streaks-section {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: var(--color-card-bg);
+    max-width: 1000px;
+    margin: 40px auto;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    border: 1px solid #2e1a47;
+}
+
+/* Streak Counter Display */
+.streak-count-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+.current-streak-fire {
+    font-size: 40px;
+    color: #ff4500;
+}
+.streak-number {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--color-purple-light);
+}
+
+/* Individual Day Items */
+.streak-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding-top: 20px;
+    border-top: 1px solid #2e1a47;
+}
+.streak-day-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: bold;
+    color: var(--color-text-muted);
+    font-size: 14px;
+}
+.streak-fire {
+    font-size: 28px;
+    margin-bottom: 5px;
+}
+.streak-day-item.active .streak-fire {
+    color: var(--color-purple-light);
+    text-shadow: 0 0 5px var(--color-purple-light);
+}
+.streak-day-item:not(.active) .streak-fire {
+    opacity: 0.3;
+}
+.streak-day-label {
+    margin-top: 5px;
+    font-size: 12px;
+}
+.streak-text {
+    color: var(--color-text-muted);
+    font-size: 14px;
+    margin-top: 15px;
+}
+
+
+/* --- 4. Categories & Features Sections --- */
+.categories-section, .why-quizzy-section {
+    padding: 60px 80px;
+    text-align: center;
+}
+.categories-section h2, .why-quizzy-section h2 {
+    margin-bottom: 5px;
+}
+.categories-section p, .why-quizzy-section p {
+    color: var(--color-text-muted);
+    margin-bottom: 40px;
+}
+
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+
+/* --- 5. Ready to Start Section (With Quiz Preview) --- */
+.ready-start-section {
+    background: linear-gradient(to right, #9b59b6, #e74c3c); 
+    padding: 60px 80px;
+    margin: 40px 80px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+.start-content h2 {
+    color: white;
+    font-size: 36px;
+}
+.start-content p {
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+.start-buttons button {
+    margin-right: 15px;
+}
+.btn-secondary-light {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid white;
+    color: white;
+}
+
+/* New Quiz Preview Card */
+.start-quiz-preview {
+    width: 200px; 
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    color: #333;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+.preview-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5px;
+}
+.preview-icon {
+    font-size: 20px;
+    margin-right: 5px;
+}
+.start-quiz-preview h3 {
+    color: #333;
+    font-size: 16px;
+    margin: 0;
+}
+.start-quiz-preview p {
+    color: #666;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+.preview-btn {
+    background-color: var(--color-primary); 
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    transition: background-color 0.2s;
+    width: 100%;
+}
+.preview-btn:hover {
+    background-color: #2e8b70;
+}

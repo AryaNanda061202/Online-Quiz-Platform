@@ -1,0 +1,27 @@
+{
+  "name": "online-quiz",
+  "version": "1.0.0",
+  "description": "Regarding Online Quiz Platform in React",
+  "main": "index.js",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KomalSonawane15699/Online-Quiz.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/KomalSonawane15699/Online-Quiz/issues"
+  },
+  "homepage": "https://github.com/KomalSonawane15699/Online-Quiz#readme",
+  "dependencies": {
+    "react-scripts": "^5.0.1"
+  }
+}

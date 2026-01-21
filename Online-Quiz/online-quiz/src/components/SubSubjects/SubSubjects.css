@@ -1,0 +1,75 @@
+/* src/components/SubSubjects/SubSubjects.css */
+
+.sub-subjects-page {
+    padding: 100px 80px 50px 80px; /* Space for fixed header */
+}
+
+.sub-subjects-page h2 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    color: var(--color-text-light);
+}
+
+.sub-subject-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 30px;
+}
+
+/* Card Styling */
+.sub-subject-card {
+    background-color: var(--color-card-bg);
+    border-radius: 12px;
+    padding: 30px;
+    height: 200px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    border: 1px solid #2e1a47; 
+}
+
+.sub-subject-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--color-purple-light);
+}
+
+.card-icon {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: var(--color-purple);
+}
+
+.sub-subject-card h3 {
+    margin: 0 0 5px 0;
+    font-size: 1.5em;
+    font-weight: 500;
+}
+
+.sub-subject-card p {
+    color: var(--color-text-muted);
+    font-size: 0.95em;
+    margin-bottom: 20px;
+}
+
+.view-quizzes-btn {
+    background: none;
+    border: none;
+    color: var(--color-primary); 
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0;
+    font-size: 1em;
+    transition: color 0.2s;
+}
+
+.view-quizzes-btn:hover {
+    color: #4dc2d4;
+}
+
+.no-sub-subjects {
+    color: var(--color-text-muted);
+    font-size: 1.2em;
+    margin-top: 30px;
+    grid-column: 1 / -1;
+    text-align: center;
+}

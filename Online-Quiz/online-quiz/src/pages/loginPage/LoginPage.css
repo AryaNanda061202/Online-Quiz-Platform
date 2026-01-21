@@ -1,0 +1,101 @@
+/* Input Fields */
+.auth-form-modal input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+.auth-form-modal select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+/* Primary Button (Continue/Create Account) */
+.modal-continue-btn {
+    background-color: var(--color-primary) !important;
+    color: white !important;
+    font-weight: bold;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+.modal-continue-btn:hover {
+    background-color: #2e8b70 !important;
+}
+
+/* Forgot/Can't Sign In Link */
+.forgot-link {
+    display: block;
+    text-align: center;
+    color: #666;
+    text-decoration: none;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+/* Social Login Buttons */
+.social-login-modal button {
+    background-color: white;
+    color: #333;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    width: 100%;
+}
+.social-login-modal .icon {
+    font-size: 1.2em;
+    margin-right: 15px;
+}
+
+.card {
+  width: 100%;
+  max-width: 420px;
+  color: #1f2937; /* dark text */
+}
+
+/* headings */
+.card-title-ug {
+  margin: 0 0 6px;
+  font-size: 28px;
+  font-weight: 700;
+  color:#0d0014;
+}
+
+.subtitle {
+  margin: 0 0 18px;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.btn-disabled,
+.btn-primary:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+  pointer-events: none;
+}
+.error-message {
+  color: red;
+  margin-top: 10px;
+  text-align: center;
+}

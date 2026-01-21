@@ -1,0 +1,61 @@
+/* --- 7. Auth Modal Styles (Grammarly Look) --- */
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to right, #240a2c 1px, transparent 1px), linear-gradient(to bottom, #240a2c 1px, transparent 1px);
+    background-size: 50px 50px;
+    background-color: rgba(0, 0, 0, 0.9); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; 
+}
+
+.auth-modal-content {
+    background-color: var(--color-text-light);
+    color: #333;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.6);
+    width: 100%;
+    max-width: 400px; 
+    position: relative;
+}
+
+/* Header and Top Link Adjustment */
+.auth-modal-content .form-header {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    position: relative;
+    margin-bottom: 5px; 
+}
+.modal-top-link {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-primary);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+}
+.auth-modal-content .form-header h2 {
+    margin-bottom: 0;
+}
+
+/* Rocket Icon in Modal */
+.modal-rocket-box {
+    text-align: center;
+    margin-bottom: 25px;
+}
+.rocket-icon {
+    font-size: 36px;
+    display: inline-block;
+    padding: 10px;
+    background-color: #f3f3f3; 
+    border-radius: 50%;
+}

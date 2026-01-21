@@ -1,0 +1,133 @@
+.create-quiz-container {
+  background: #18181b;
+  color: #fff;
+  border-radius: 12px;
+  padding: 32px;
+  max-width: 900px;
+  margin: 40px auto;
+  box-shadow: 0 4px 32px rgba(213, 152, 152, 0.133);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.create-quiz-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.create-quiz-header h2 {
+  margin: 0;
+}
+.create-quiz-actions button {
+  margin-left: 12px;
+  padding: 8px 18px;
+  border-radius: 6px;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+}
+.save-draft-btn {
+  background: #23232b;
+  color: #fff;
+}
+.preview-btn {
+  background: #a855f7;
+  color: #fff;
+}
+.create-quiz-body {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+.quiz-details, .quiz-settings {
+  background: #23232b;
+  border-radius: 10px;
+  padding: 24px;
+  flex: 1;
+  min-width: 320px;
+}
+.quiz-details h3, .quiz-settings h3 {
+  margin-top: 0;
+}
+.form-group {
+  margin-bottom: 18px;
+  display: flex;
+  flex-direction: column;
+}
+.form-group label {
+  margin-bottom: 6px;
+  font-size: 15px;
+  color: #bdbdbd;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #333;
+  background: #18181b;
+  color: #fff;
+  font-size: 15px;
+  margin-bottom: 0;
+}
+.form-group textarea {
+  min-height: 60px;
+  resize: vertical;
+}
+.form-row {
+  display: flex;
+  gap: 16px;
+}
+.input-inline {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.toggle-row {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.create-quiz-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 16px;
+}
+.prev-btn, .next-btn {
+  padding: 10px 28px;
+  border-radius: 6px;
+  border: none;
+  font-weight: 500;
+  font-size: 16px;
+  cursor: pointer;
+}
+.prev-btn {
+  background: #23232b;
+  color: #fff;
+}
+.next-btn {
+  background: #a855f7;
+  color: #fff;
+}
+.next-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.back-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+  margin-right: 16px;
+}
+@media (max-width: 900px) {
+  .create-quiz-body {
+    flex-direction: column;
+    gap: 16px;
+  }
+  .quiz-details, .quiz-settings {
+    min-width: 0;
+  }
+}
