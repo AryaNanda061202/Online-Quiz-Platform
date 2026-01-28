@@ -1,0 +1,211 @@
+Quizzy Database
+
+⦁	users Table
+
+CREATE TABLE users (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    full_name VARCHAR(100),
+    username VARCHAR(50),
+    email VARCHAR(120) UNIQUE,
+    password VARCHAR(255),
+    role VARCHAR(20),
+    coins INT DEFAULT 0,
+    xp INT DEFAULT 0,
+    level INT DEFAULT 1
+);
+
+
+⦁	quizzes Table
+
+CREATE TABLE quizzes (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    title VARCHAR(150),
+    description TEXT,
+    created_by BIGINT,
+    total_marks INT,
+    time_limit INT,
+    FOREIGN KEY (created_by) REFERENCES users(id)
+);
+
+⦁	questions Table
+
+CREATE TABLE questions (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    quiz_id BIGINT,
+    question_text TEXT,
+    question_type VARCHAR(50),
+    marks INT DEFAULT 1,
+    FOREIGN KEY (quiz_id) REFERENCES quizzes(id) ON DELETE CASCADE
+);
+
+⦁	options Table
+
+CREATE TABLE options (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    question_id BIGINT,
+    option_text TEXT,
+    is_correct BOOLEAN DEFAULT FALSE,
+    FOREIGN KEY (question_id) REFERENCES questions(id) ON DELETE CASCADE
+);
+
+⦁	quiz_attempts Table
+
+CREATE TABLE quiz_attempts (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    quiz_id BIGINT,
+    student_id BIGINT,
+    score INT DEFAULT 0,
+    reward_points INT DEFAULT 0,
+    started_at DATETIME,
+    completed_at DATETIME,
+    FOREIGN KEY (quiz_id) REFERENCES quizzes(id),
+    FOREIGN KEY (student_id) REFERENCES users(id)
+);
+
+
+⦁	attempt_answers Table
+
+CREATE TABLE attempt_answers (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    attempt_id BIGINT,
+    question_id BIGINT,
+    selected_option_id BIGINT,
+    is_correct BOOLEAN,
+    FOREIGN KEY (attempt_id) REFERENCES quiz_attempts(id) ON DELETE CASCADE,
+    FOREIGN KEY (question_id) REFERENCES questions(id),
+    FOREIGN KEY (selected_option_id) REFERENCES options(id)
+);
+
+
+⦁	badges
+
+CREATE TABLE badges (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100),
+    description TEXT,
+    icon VARCHAR(255)
+);
+
+⦁	user_badges Table
+
+CREATE TABLE user_badges (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    user_id BIGINT,
+    badge_id BIGINT,
+    earned_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    FOREIGN KEY (badge_id) REFERENCES badges(id)
+);
+
+⦁	reward_transactions table
+
+CREATE TABLE reward_transactions (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    user_id BIGINT,
+    amount INT,
+    type VARCHAR(20),
+    reason VARCHAR(200),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+-- Add quiz_assignments table to support quiz assignment to students
+CREATE TABLE quiz_assignments (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    quiz_id BIGINT,
+    student_id BIGINT,
+    assigned_by BIGINT,
+    assigned_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (quiz_id) REFERENCES quizzes(id),
+    FOREIGN KEY (student_id) REFERENCES users(id),
+    FOREIGN KEY (assigned_by) REFERENCES users(id)
+);
+
+-- ER Diagram (Textual Representation)
+
+-- [users] <1------n> [quizzes]         (users.id = quizzes.created_by)
+-- [users] <1------n> [quiz_assignments] (users.id = quiz_assignments.student_id)
+-- [users] <1------n> [quiz_assignments] (users.id = quiz_assignments.assigned_by)
+-- [users] <1------n> [quiz_attempts]   (users.id = quiz_attempts.student_id)
+-- [users] <1------n> [user_badges]     (users.id = user_badges.user_id)
+-- [users] <1------n> [reward_transactions] (users.id = reward_transactions.user_id)
+
+-- [quizzes] <1------n> [questions]     (quizzes.id = questions.quiz_id)
+-- [quizzes] <1------n> [quiz_assignments] (quizzes.id = quiz_assignments.quiz_id)
+-- [quizzes] <1------n> [quiz_attempts] (quizzes.id = quiz_attempts.quiz_id)
+
+-- [questions] <1------n> [options]     (questions.id = options.question_id)
+-- [questions] <1------n> [attempt_answers] (questions.id = attempt_answers.question_id)
+
+-- [quiz_attempts] <1------n> [attempt_answers] (quiz_attempts.id = attempt_answers.attempt_id)
+
+-- [options] <1------n> [attempt_answers] (options.id = attempt_answers.selected_option_id)
+
+-- [badges] <1------n> [user_badges]    (badges.id = user_badges.badge_id)
+
+-- Table List:
+-- users, quizzes, questions, options, quiz_assignments, quiz_attempts, attempt_answers, badges, user_badges, reward_transactions
+
+-- Legend:
+-- <1------n> means one-to-many relationship
+
+-- For a graphical ERD, use a tool like dbdiagram.io or draw.io and map the above relationships.
+-- All foreign keys are already defined in your SQL schema.
+
+-- Example queries for your use cases:
+
+-- 1. User Signup
+-- ...existing code...
+
+-- 2. User Sign In
+-- ...existing code...
+
+-- 3. Create Quiz (by Teacher)
+-- ...existing code...
+
+-- 4. Add Questions to Quiz
+-- ...existing code...
+
+-- 5. Add Options to Question
+-- ...existing code...
+
+-- 6. Assign Quiz to Student
+-- (see quiz_assignments table above)
+-- Example:
+-- INSERT INTO quiz_assignments (quiz_id, student_id, assigned_by) VALUES (?, ?, ?);
+
+-- 7. List of Quizzes Assigned to a Student
+-- (shows quizzes assigned by teacher)
+SELECT q.*
+FROM quizzes q
+JOIN quiz_assignments qa ON qa.quiz_id = q.id
+WHERE qa.student_id = ?;
+
+-- 8. List of Quizzes Created by a Teacher
+SELECT * FROM quizzes WHERE created_by = ?;
+
+-- 9. Attempt a Quiz (Student starts an attempt)
+-- ...existing code...
+
+-- 10. Store Answers for Attempt
+-- ...existing code...
+
+-- 11. Complete Quiz Attempt and Update Score/Coins
+-- ...existing code...
+
+-- 12. Update User Coins After Attempt
+-- ...existing code...
+
+-- 13. Store Coin Transaction
+-- ...existing code...
+
+-- 14. Get User Coins
+-- ...existing code...
+
+-- 15. Get Quiz Attempts for Student
+-- ...existing code...
+
+-- 16. Get Attempt Answers for a Quiz Attempt
+-- ...existing code...
+
+
