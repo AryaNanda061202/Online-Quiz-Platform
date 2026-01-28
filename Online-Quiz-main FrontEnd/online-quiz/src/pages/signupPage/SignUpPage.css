@@ -1,0 +1,151 @@
+/* account types */
+.account-types {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.type {
+  flex: 1;
+  border: 1px solid #e6e6ea;
+  border-radius: 10px;
+  padding: 12px;
+  text-align: left;
+  background: #fafafa;
+  cursor: pointer;
+}
+
+.type .icon {
+  font-size: 20px;
+}
+
+.type .label {
+  font-weight: 600;
+  margin-top: 6px;
+}
+
+.type .meta {
+  margin-top: 4px;
+  font-size: 12px;
+  color: #6b7280;
+}
+
+/* active (student) */
+.type.student.active {
+  background: #f3e8ff;
+  border-color: #eecbff;
+  box-shadow: 0 4px 10px rgba(124,58,237,0.08);
+}
+
+.type.teacher.active {
+  background: #f3e8ff;
+  border-color: #eecbff;
+  box-shadow: 0 4px 10px rgba(124,58,237,0.08);
+}
+
+/* social buttons */
+.social-row {
+  display: flex;
+  gap: 12px;
+  margin: 14px 0;
+}
+
+.social {
+  flex: 1;
+  border: 1px solid #e6e6ea;
+  padding: 10px;
+  border-radius: 8px;
+  background: #fff;
+  cursor: pointer;
+}
+
+/* OR line */
+.or {
+  text-align: center;
+  margin: 12px 0;
+  color: #9ca3af;
+  font-size: 12px;
+}
+
+/* form */
+.form .row {
+  display: flex;
+  gap: 12px;
+}
+
+.form input {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #e6e6ea;
+  font-size: 14px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.form input:focus {
+  border-color: #7c3aed;
+  box-shadow: 0 0 0 4px rgba(124,58,237,0.06);
+}
+
+.form .wide {
+  margin-top: 12px;
+}
+
+.btn-primary-signup {
+  width: 100%;
+  margin-top: 12px;
+  padding: 12px;
+  background: linear-gradient(90deg,#7b2ff7,#b44ef8);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-weight: 700;
+  text-align:center;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.btn-primary-signup:hover {
+  filter: brightness(0.98);
+}
+
+.btn-disabled,
+.btn-primary-signup:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.card {
+  width: 100%;
+  max-width: 420px;
+  color: #1f2937; /* dark text */
+}
+
+/* headings */
+.card-title-bg {
+  margin: 0 0 6px;
+  font-size: 28px;
+  font-weight: 700;
+  color:#0d0014;
+}
+
+.subtitle {
+  margin: 0 0 18px;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+/* messages */
+.success-message {
+  color: green;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.error-message {
+  color: red;
+  margin-top: 10px;
+  text-align: center;
+}
